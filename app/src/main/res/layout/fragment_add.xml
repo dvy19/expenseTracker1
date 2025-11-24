@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+
+    android:background="@color/blue_white">
+
+    <LinearLayout
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:src="@drawable/arrow"
+            android:rotation="-90"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Add Expense"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:fontFamily="@font/poppins_semibold"
+
+            />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputs"
+            android:hint="Amount in Rupees"
+            android:textColorHint="#60000000"
+            android:paddingStart="15dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+
+            />
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:fontFamily="@font/poppins_semibold"
+
+            />
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputs"
+            android:hint="00-00-00"
+            android:inputType="date"
+            android:textColorHint="#60000000"
+            android:paddingStart="15dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+
+            />
+
+        <Button
+
+            android:padding="12dp"
+            android:id="@+id/saveExpense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#0118D8"
+            android:text="Save"
+            android:textColor="@color/blue_white"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+
+
+            />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

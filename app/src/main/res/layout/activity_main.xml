@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Content area -->
+    <FrameLayout
+        android:background="@color/blue_white"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Bottom nav using buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+
+        android:gravity="center"
+        android:padding="13dp"
+        android:background="@color/blue">
+
+
+
+          <ImageView
+              android:clickable="true"
+              android:focusable="true"
+              android:layout_width="0dp"
+              android:layout_weight="1"
+              android:id="@+id/home"
+              android:layout_height="30dp"
+              android:src="@drawable/home"
+              app:tint="@color/blue_white"
+              />
+
+
+
+        <ImageView
+android:clickable="true"
+            android:focusable="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/add"
+            android:layout_height="30dp"
+            android:src="@drawable/add"
+            app:tint="@color/blue_white"
+            />
+
+        <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/profile"
+            android:layout_height="30dp"
+            android:src="@drawable/user"
+            app:tint="@color/blue_white"
+            />
+
+    </LinearLayout>
+</LinearLayout>
