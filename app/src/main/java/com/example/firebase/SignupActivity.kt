@@ -54,8 +54,9 @@ class SignupActivity : AppCompatActivity() {
                                 // redirect to home/dashboard screen
                             }
 
-                        val intent=Intent(this, MainActivity::class.java)
+                        val intent=Intent(this, UserDetailsActivity::class.java)
                         startActivity(intent)
+                        finish()
 
 
                     }
