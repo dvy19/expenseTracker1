@@ -1,16 +1,85 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.firebase.HomeFragment"
-    android:layout_gravity="center"
-    >
+    android:background="@color/blue_white"
+    android:layout_height="match_parent">
 
 
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="home"
-        android:gravity="center"/>
+        android:layout_height="200dp"
+        android:background="@drawable/header"
+        android:padding="20dp"
+        >
 
-</FrameLayout>
+       <LinearLayout
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           >
+
+           <TextView
+               android:id="@+id/usernameDisplay"
+               android:textSize="20sp"
+               android:fontFamily="@font/poppins_semibold"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Divy Dixit"
+
+               />
+
+           <TextView
+               android:layout_marginTop="25dp"
+               android:id="@+id/totalExpense"
+               android:textSize="45sp"
+               android:fontFamily="@font/poppins_semibold"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="₹ -"
+               />
+
+           <TextView
+               android:layout_marginTop="-20dp"
+               android:id="@+id/totalBudget"
+               android:textSize="18sp"
+               android:fontFamily="@font/poppins_semibold"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="  ₹ 500"
+               />
+       </LinearLayout>
+
+        <ProgressBar
+            android:layout_gravity="center_vertical"
+            android:id="@+id/expenseProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:progress="0"
+            android:max="100"
+            android:progressTint="@android:color/holo_green_dark" />
+
+
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/recyclerView"
+
+        />
+
+</LinearLayout>

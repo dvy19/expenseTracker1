@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/blue_white"
+    android:padding="34dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complete Your Profile \nHere"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:layout_marginTop="-5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't worry only you can see \nyour personal data"
+        android:textColor="#80000000"
+        android:textSize="16sp"
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/userFullName"
+        android:textSize="15sp"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/user_inputs"
+        android:padding="12dp"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        android:textColorHint="#30000000"
+        />
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:layout_marginRight="10dp"
+            android:id="@+id/userGender"
+            android:textSize="15sp"
+            android:layout_marginTop="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/user_inputs"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
+            android:hint="Gender"
+            android:textColorHint="#30000000"
+            />
+
+        <EditText
+            android:textSize="15sp"
+            android:id="@+id/userCity"
+            android:layout_marginTop="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/user_inputs"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            android:textColorHint="#30000000"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:textSize="15sp"
+        android:id="@+id/userDOB"
+        android:focusable="false"
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/user_inputs"
+        android:padding="12dp"
+        android:layout_height="wrap_content"
+        android:hint="dd-mm-yy"
+        android:textColorHint="#30000000"
+        />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:text="Create Account"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="20dp"
+        />
+
+
+
+
+</LinearLayout>

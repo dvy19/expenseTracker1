@@ -91,6 +91,7 @@ dependencies {
     // Firebase Auth (version from version catalog)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    implementation(libs.androidx.activity)
 
     // Testing
     testImplementation(libs.junit)
