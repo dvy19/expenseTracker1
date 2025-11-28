@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/blue_white"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="34dp"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
+
+
+        <ImageView
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:src="@drawable/userbudget"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start by Entering Your Budget"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_semibold"
+            />
+
+        <EditText
+            android:textColor="@color/black"
+            android:id="@+id/userBudget"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputs"
+            android:hint="In Rupees"
+            android:inputType="number"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColorHint="#60000000"
+            android:paddingStart="15dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            />
+
+        <Button
+            android:padding="12dp"
+            android:id="@+id/saveBudget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#0118D8"
+            android:text="Save"
+            android:textColor="@color/blue_white"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/toUserDetails"
+            />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

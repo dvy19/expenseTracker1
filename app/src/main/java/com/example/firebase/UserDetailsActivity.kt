@@ -14,16 +14,10 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.Calendar
 
-
 class UserDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: UserInfoBinding
     private lateinit var databaseReference: DatabaseReference
-
-    private lateinit var profileImage: ImageView
-    private lateinit var selectUserImage: Button
-
-    private var selectImageUri:Uri?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +25,11 @@ class UserDetailsActivity : AppCompatActivity() {
         binding = UserInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Save data under this user’s UID
+        // ✅ UPDATED: Better database structure - Save under "users/uid/profile"
         val uid = FirebaseAuth.getInstance().currentUser?.uid
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+        databaseReference = FirebaseDatabase.getInstance().getReference("users")
 
-        // 🔹 Date Picker
+        // 🔹 Date Picker (Keep as is - it's perfect)
         binding.userDOB.setOnClickListener {
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
@@ -49,8 +43,6 @@ class UserDetailsActivity : AppCompatActivity() {
             )
             datePicker.show()
         }
-
-
 
         // 🔹 Handle Save Button
         binding.userSignup.setOnClickListener {
@@ -76,20 +68,21 @@ class UserDetailsActivity : AppCompatActivity() {
                 name = full_name,
                 gender = gender,
                 dob = dob,
-                city = city
+                city = city,
+
             )
 
-            // Save data under user UID
-            databaseReference.child(uid).setValue(user)
+            // ✅ UPDATED: Save to user-specific path "users/uid/profile"
+            databaseReference.child(uid).child("profile").setValue(user)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Profile Saved", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Profile Saved Successfully!", Toast.LENGTH_SHORT).show()
 
                     // Go to main screen
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, UserBudget::class.java))
                     finish()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Error saving profile", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Error saving profile: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
     }

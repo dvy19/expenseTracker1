@@ -1,14 +1,151 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.firebase.ProfileFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+    android:background="@color/blue_white"
+    android:padding="34dp"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
-
-    <TextView
-        android:gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="profile" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/account"
+            android:layout_marginTop="20dp"
+            android:id="@+id/userImageShow"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/usernameShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Divya Dixit"
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                />
+
+            <TextView
+                android:id="@+id/mailShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="your@gmail.com"
+                android:textSize="16sp"
+                android:textColor="#70000000"
+                android:layout_marginTop="-10dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Log Out"
+                android:textSize="13sp"
+                android:background="@drawable/user_inputs"
+                android:backgroundTint="@color/blue"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:paddingStart="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="19dp"
+        android:paddingEnd="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:backgroundTint="#F1F3E0"
+        android:background="@drawable/user_inputs"
+        >
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+
+
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/money"
+                android:layout_gravity="center_vertical"
+                android:foregroundGravity="center_vertical"
+                />
+            <TextView
+
+                android:gravity="center_vertical"
+                android:layout_marginTop="-5dp"
+                android:layout_width="match_parent"
+                android:text="Current Budget"
+                android:textColor="@color/black"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500"
+            android:textSize="34sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Added : 12-11-2025"
+            android:textSize="14sp"
+            android:textColor="#90000000"
+            android:layout_marginTop="-14dp"
+
+            />
+
+
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp" />
+
+
+
+
+</LinearLayout>

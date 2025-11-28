@@ -5,6 +5,8 @@ data class User(
     val gender:String?="",
     val dob:String?="",
     val city:String?="",
+
+
     val profileImageUrl:String=""
 
 )

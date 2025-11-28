@@ -9,15 +9,16 @@
 
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Sign Up"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Log In"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 
 
@@ -43,7 +44,7 @@
 
         <EditText
             android:textColor="@color/black"
-            android:id="@+id/eMail"
+            android:id="@+id/loginMail"
             android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,7 +73,7 @@
 
         <EditText
             android:textColor="@color/black"
-            android:id="@+id/password"
+            android:id="@+id/loginPassword"
             android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,30 +87,29 @@
 
             />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
 
         <Button
             android:padding="12dp"
-            android:id="@+id/signUp"
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#0118D8"
-            android:text="Sign Up"
+            android:text="Log In"
             android:textColor="@color/blue_white"
             android:textSize="18sp"
             android:layout_marginTop="20dp"
+
+
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Log In Here"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:id="@+id/toLogin"
-            />
+
 
 
 

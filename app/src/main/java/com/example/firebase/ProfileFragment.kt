@@ -1,21 +1,107 @@
-package com.example.firebase
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.firebase.User
+import com.example.firebase.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class ProfileFragment : Fragment() {
 
+    private lateinit var binding: FragmentProfileBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
+    private lateinit var usersRef: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        setupFirebase()
+        loadUserData()
+    }
+
+    private fun setupFirebase() {
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        usersRef = database.getReference("users")
+    }
+
+    private fun loadUserData() {
+        val currentUser = auth.currentUser
+
+        if (currentUser != null) {
+            // Show loading progress
+            binding.progressBar.visibility = View.VISIBLE
+
+            val userId = currentUser.uid
+            val authEmail = currentUser.email ?: "No email" // Get email from Auth
+
+            // ✅ UPDATED: Read from user's profile path "users/uid/profile"
+            usersRef.child(userId).child("profile").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    binding.progressBar.visibility = View.GONE
+
+                    if (snapshot.exists()) {
+                        // Get user data from database
+                        val user = snapshot.getValue(User::class.java)
+                        user?.let {
+                            updateUI(it, authEmail)
+                        }
+                    } else {
+                        // If no data in database, show basic info
+                        val user = User(
+                            name = "Name not set",
+                            gender = "-",
+                            dob = "-",
+                            city = "-"
+                        )
+                        updateUI(user, authEmail)
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    binding.progressBar.visibility = View.GONE
+                    // Use auth data if database fails
+                    val user = User(
+                        name = "-",
+                        gender = "-",
+                        dob = "-",
+                        city = "-"
+                    )
+                    updateUI(user, authEmail)
+                }
+            })
+        } else {
+            showNoUserData()
+        }
+    }
+
+    private fun updateUI(user: User, email: String) {
+        binding.usernameShow.text = user.name
+        binding.mailShow.text = email // Use email from Auth
+
+        // ✅ ADDED: Display additional user details if you have these TextViews
+        // If you have these TextViews in your layout, uncomment below:
+        /*
+        binding.genderShow.text = user.gender
+        binding.dobShow.text = user.dob
+        binding.cityShow.text = user.city
+        */
+    }
+
+    private fun showNoUserData() {
+        binding.usernameShow.text = "Please log in to view profile"
+        binding.mailShow.text = ""
+        binding.progressBar.visibility = View.GONE
+    }
 }

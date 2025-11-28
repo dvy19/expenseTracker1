@@ -56,8 +56,7 @@ dependencies {
     // AndroidX Core
     implementation("androidx.core:core-ktx:1.12.0")
 
-    implementation ("com.github.dhaval2404:imagepicker:2.1")
-    implementation ("com.github.bumptech.glide:glide:4.15.1")
+
     // AppCompat
     implementation("androidx.appcompat:appcompat:1.6.1")
 

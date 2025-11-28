@@ -26,6 +26,10 @@ class SignupActivity : AppCompatActivity() {
 
         auth= FirebaseAuth.getInstance()
 
+        binding.toLogin.setOnClickListener{
+            startActivity(Intent(this, LoginActivity::class.java))
+
+        }
         binding.signUp.setOnClickListener{
             var mail=binding.eMail.text.toString().trim()
             var password=binding.password.text.toString()
