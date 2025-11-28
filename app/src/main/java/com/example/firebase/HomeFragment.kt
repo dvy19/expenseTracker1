@@ -99,7 +99,7 @@ class HomeFragment : Fragment() {
                                 totalSpent = it.totalSpent ?: 0.0
 
                                 // Update UI with budget data
-                                binding.totalBudget.text = "₹${userBudget.toInt()}"
+
                                 updateBudgetProgress()
 
                                 // Now load expenses
@@ -109,7 +109,7 @@ class HomeFragment : Fragment() {
                         }
                     } else {
                         // No active budget found
-                        binding.totalBudget.text = "₹0"
+
                         binding.totalExpense.text = "₹0"
                         binding.expenseProgress.progress = 0
                         Toast.makeText(requireContext(), "No active budget set", Toast.LENGTH_SHORT).show()
@@ -119,7 +119,7 @@ class HomeFragment : Fragment() {
 
                 override fun onCancelled(error: DatabaseError) {
                     Toast.makeText(requireContext(), "Failed to load budget", Toast.LENGTH_SHORT).show()
-                    binding.totalBudget.text = "₹0"
+
                     loadExpenses()
                 }
             })
