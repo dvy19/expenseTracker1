@@ -68,6 +68,7 @@
                 />
 
             <EditText
+                android:textColor="@color/black"
                 android:id="@+id/userFullName"
                 android:textSize="15sp"
                 android:layout_marginTop="8dp"
@@ -88,6 +89,8 @@
                 android:orientation="horizontal"
                 >
                 <EditText
+                    android:textColor="@color/black"
+
                     android:layout_marginRight="10dp"
                     android:id="@+id/userGender"
                     android:textSize="15sp"
@@ -102,6 +105,8 @@
                     />
 
                 <EditText
+                    android:textColor="@color/black"
+
                     android:textSize="15sp"
                     android:id="@+id/userCity"
                     android:layout_marginTop="4dp"
@@ -127,6 +132,8 @@
                 android:layout_marginTop="20dp"
                 />
             <EditText
+                android:textColor="@color/black"
+
                 android:textSize="15sp"
                 android:id="@+id/userDOB"
                 android:focusable="false"

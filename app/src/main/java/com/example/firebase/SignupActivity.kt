@@ -28,6 +28,7 @@ class SignupActivity : AppCompatActivity() {
 
         binding.toLogin.setOnClickListener{
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
 
         }
         binding.signUp.setOnClickListener{

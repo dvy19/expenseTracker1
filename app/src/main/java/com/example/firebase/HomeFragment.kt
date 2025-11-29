@@ -43,6 +43,10 @@ class HomeFragment : Fragment() {
         adapter = ExpenseAdapter(expenseList)
         binding.recyclerView.adapter = adapter
 
+        binding.deleteExpenses.setOnClickListener {
+            deleteAllExpensesVisually()
+        }
+
         val currentUser = auth.currentUser
         if (currentUser == null) {
             Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
@@ -185,5 +189,44 @@ class HomeFragment : Fragment() {
         // Optional: Show budget status message
         val remaining = userBudget - totalSpent
 
+
+
+
+    }
+
+
+
+    private fun deleteAllExpensesVisually() {
+        if (expenseList.isEmpty()) {
+            Toast.makeText(requireContext(), "No expenses to delete", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Show confirmation dialog
+        android.app.AlertDialog.Builder(requireContext())
+            .setTitle("Clear All Expenses")
+            .setMessage("Are you sure you want to clear all expenses from view? This will not delete them from your database.")
+            .setPositiveButton("Clear All") { dialog, which ->
+                performVisualDeletion()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun performVisualDeletion() {
+        // Store the original count for animation
+        val itemCount = expenseList.size
+
+        // Clear the list
+        expenseList.clear()
+
+        // Update the adapter with animation
+        adapter.notifyItemRangeRemoved(0, itemCount)
+
+        // Reset the UI values
+        binding.totalExpense.text = "₹0"
+        binding.expenseProgress.progress = 0
+
+        Toast.makeText(requireContext(), "All expenses cleared from view", Toast.LENGTH_SHORT).show()
     }
 }

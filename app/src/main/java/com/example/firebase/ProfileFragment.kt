@@ -15,6 +15,9 @@ class ProfileFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var usersRef: DatabaseReference
 
+    private var userBudget: Double = 0.0
+    private var userName: String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
