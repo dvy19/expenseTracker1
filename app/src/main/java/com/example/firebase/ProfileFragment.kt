@@ -65,8 +65,8 @@ class ProfileFragment : Fragment() {
                         val user = User(
                             name = "Name not set",
                             gender = "-",
-                            dob = "-",
-                            city = "-"
+                            ageGroup = "-", // Updated from dob to ageGroup
+                            profileImageUrl = ""
                         )
                         updateUI(user, authEmail)
                     }
@@ -78,8 +78,9 @@ class ProfileFragment : Fragment() {
                     val user = User(
                         name = "-",
                         gender = "-",
-                        dob = "-",
-                        city = "-"
+                        ageGroup = "-", // Updated from dob to ageGroup
+
+                        profileImageUrl = ""
                     )
                     updateUI(user, authEmail)
                 }
@@ -93,11 +94,11 @@ class ProfileFragment : Fragment() {
         binding.usernameShow.text = user.name
         binding.mailShow.text = email // Use email from Auth
 
-        // ✅ ADDED: Display additional user details if you have these TextViews
+        // ✅ UPDATED: Display additional user details if you have these TextViews
         // If you have these TextViews in your layout, uncomment below:
         /*
         binding.genderShow.text = user.gender
-        binding.dobShow.text = user.dob
+        binding.ageGroupShow.text = user.ageGroup // Changed from dobShow to ageGroupShow
         binding.cityShow.text = user.city
         */
     }

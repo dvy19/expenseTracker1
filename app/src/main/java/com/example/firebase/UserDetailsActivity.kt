@@ -1,24 +1,19 @@
 package com.example.firebase
 
-import android.app.DatePickerDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.firebase.databinding.UserInfoBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import java.util.Calendar
 
 class UserDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: UserInfoBinding
     private lateinit var databaseReference: DatabaseReference
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,33 +24,34 @@ class UserDetailsActivity : AppCompatActivity() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         databaseReference = FirebaseDatabase.getInstance().getReference("users")
 
-        // 🔹 Date Picker (Keep as is - it's perfect)
-        binding.userDOB.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            val year = calendar.get(Calendar.YEAR)
-            val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
+        // Setup Gender Spinner
+        setupGenderSpinner()
 
-            val datePicker = DatePickerDialog(this,
-                { _, selectedYear, selectedMonth, selectedDay ->
-                    binding.userDOB.setText("$selectedDay-${selectedMonth + 1}-$selectedYear")
-                }, year, month, day
-            )
-            datePicker.show()
-        }
+        // Setup Age Group Spinner
+        setupAgeGroupSpinner()
 
         // 🔹 Handle Save Button
         binding.userSignup.setOnClickListener {
-
-            val full_name = binding.userFullName.text.toString().trim()
-            val city = binding.userCity.text.toString().trim()
-            val dob = binding.userDOB.text.toString().trim()
-            val gender = binding.userGender.text.toString().trim()
+            val fullName = binding.userFullName.text.toString().trim()
+            val selectedGender = binding.genderSpinner.selectedItem.toString()
+            val selectedAgeGroup = binding.ageGroupSpinner.selectedItem.toString()
 
 
-
-            if (full_name.isEmpty() || city.isEmpty() || dob.isEmpty() || gender.isEmpty()) {
+            // Validate fields
+            if (fullName.isEmpty() ) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Validate gender selection (first item is "Select Gender")
+            if (selectedGender == "Select Gender") {
+                Toast.makeText(this, "Please select your gender", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Validate age group selection (first item is "Select Age Group")
+            if (selectedAgeGroup == "Select Age Group") {
+                Toast.makeText(this, "Please select your age group", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -65,11 +61,10 @@ class UserDetailsActivity : AppCompatActivity() {
             }
 
             val user = User(
-                name = full_name,
-                gender = gender,
-                dob = dob,
-                city = city,
-
+                name = fullName,
+                gender = selectedGender,
+                ageGroup = selectedAgeGroup, // Using ageGroup instead of dob
+                profileImageUrl = "" // Default empty, you can update this later
             )
 
             // ✅ UPDATED: Save to user-specific path "users/uid/profile"
@@ -85,5 +80,19 @@ class UserDetailsActivity : AppCompatActivity() {
                     Toast.makeText(this, "Error saving profile: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
+    }
+
+    private fun setupGenderSpinner() {
+        val genderOptions = arrayOf("Select Gender", "Male", "Female", "Other")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genderOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.genderSpinner.adapter = adapter
+    }
+
+    private fun setupAgeGroupSpinner() {
+        val ageGroupOptions = arrayOf("Select Age Group", "13-18", "18-24", "25+")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ageGroupOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.ageGroupSpinner.adapter = adapter
     }
 }

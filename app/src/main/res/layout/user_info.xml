@@ -28,14 +28,7 @@
         android:textColor="#80000000"
         android:textSize="16sp"/>
 
-<ImageView
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:src="@drawable/account"
-    android:layout_gravity="center"
-    android:layout_marginTop="30dp"
-    android:id="@+id/userProfileImage"
-    />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -49,13 +42,36 @@
             android:orientation="vertical"
             >
 
-            <Button
-                android:id="@+id/selectUserImage"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
 
-                android:text="Select Profile Image"
-                android:layout_gravity="center"/>
+            <LinearLayout
+                android:layout_marginTop="40dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+
+                >
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/account"
+                    android:layout_gravity="center"
+                    android:id="@+id/userProfileImage"
+                    />
+                <Button
+                    android:id="@+id/selectUserImage"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="50dp"
+                    android:text="Select Profile Image"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,69 +98,50 @@
 
 
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <EditText
-                    android:textColor="@color/black"
-
-                    android:layout_marginRight="10dp"
-                    android:id="@+id/userGender"
-                    android:textSize="15sp"
-                    android:layout_marginTop="4dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/user_inputs"
-                    android:padding="12dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Gender"
-                    android:textColorHint="#30000000"
-                    />
-
-                <EditText
-                    android:textColor="@color/black"
-
-                    android:textSize="15sp"
-                    android:id="@+id/userCity"
-                    android:layout_marginTop="4dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/user_inputs"
-                    android:padding="12dp"
-                    android:layout_height="wrap_content"
-                    android:hint="City"
-                    android:textColorHint="#30000000"
-                    />
-
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date of Birth"
+                android:text="Gender"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:fontFamily="@font/poppins_semibold"
-                android:layout_marginTop="20dp"
-                />
-            <EditText
-                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
 
-                android:textSize="15sp"
-                android:id="@+id/userDOB"
-                android:focusable="false"
-                android:layout_marginTop="4dp"
-                android:layout_width="match_parent"
+            <Spinner
                 android:background="@drawable/user_inputs"
-                android:padding="12dp"
+                android:id="@+id/genderSpinner"
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="dd-mm-yy"
-                android:textColorHint="#30000000"
-                />
+                android:padding="12dp" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age Group"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <Spinner
+                android:background="@drawable/user_inputs"
+                android:id="@+id/ageGroupSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp" />
+
+
+
+
+
+
+
+
 
 
 
