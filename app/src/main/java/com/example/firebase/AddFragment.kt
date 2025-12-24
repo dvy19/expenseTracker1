@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.firebase.databinding.FragmentAddBinding
@@ -22,6 +24,22 @@ class AddFragment : Fragment() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var auth: FirebaseAuth
     private var currentActiveBudgetId: String? = null
+    private var selectedCategory: String = ""
+
+    // Predefined categories for the spinner
+    private val expenseCategories = arrayOf(
+        "Select Category",
+        "Groceries",
+        "Subscription",
+        "Food",
+        "Travel",
+        "Entertainment",
+        "Utilities",
+        "Healthcare",
+        "Shopping",
+        "Education",
+        "Other"
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +56,9 @@ class AddFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         databaseReference = FirebaseDatabase.getInstance().getReference("users")
 
+        // Setup spinner
+        setupCategorySpinner()
+
         // Get the current active budget when fragment starts
         getCurrentActiveBudget()
 
@@ -47,6 +68,29 @@ class AddFragment : Fragment() {
 
         binding.saveExpense.setOnClickListener {
             saveExpenseToUserDatabase()
+        }
+    }
+
+    private fun setupCategorySpinner() {
+        // Create adapter for spinner
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            expenseCategories
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        binding.spinnerCategory.adapter = adapter
+
+        // Set spinner item selection listener
+        binding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                selectedCategory = expenseCategories[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                selectedCategory = ""
+            }
         }
     }
 
@@ -94,10 +138,9 @@ class AddFragment : Fragment() {
     private fun saveExpenseToUserDatabase() {
         val amount = binding.amount.text.toString()
         val date = binding.date.text.toString()
-        val category = binding.category.text.toString()
 
-        if (amount.isEmpty() || date.isEmpty() || category.isEmpty()) {
-            Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
+        if (amount.isEmpty() || date.isEmpty() || selectedCategory.isEmpty() || selectedCategory == "Select Category") {
+            Toast.makeText(requireContext(), "Please fill all fields and select a valid category", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -120,7 +163,7 @@ class AddFragment : Fragment() {
         val expense = Expense(
             amount = amount,
             date = date,
-            category = category,
+            category = selectedCategory,
             budgetId = currentActiveBudgetId // Link to current active budget
         )
 
@@ -133,7 +176,8 @@ class AddFragment : Fragment() {
                 // Clear fields after successful save
                 binding.amount.text.clear()
                 binding.date.text.clear()
-                binding.category.text.clear()
+                binding.spinnerCategory.setSelection(0) // Reset to "Select Category"
+
                 Toast.makeText(requireContext(), "Expense saved successfully!", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {

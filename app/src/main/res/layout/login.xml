@@ -1,31 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:gravity="center_vertical"
-    android:layout_height="match_parent"
-    android:background="@color/blue_white">
+    android:padding="24dp"
+    android:background="#101922"
+    android:layout_height="match_parent">
 
 
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/wallet"
+        app:tint="@color/blue"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_gravity="center"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Log In"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:text="Welcome Back"
+        android:layout_gravity="center"
+        android:textColor="#f6f7f8"
+        android:textSize="32sp"
+        android:layout_marginTop="16dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Sign In to track your Expenses"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:textColor="#70f6f7f7"
+        />
+
 
 
 
     <LinearLayout
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginTop="20dp"
+      android:paddingTop="24dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -34,57 +53,76 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="E Mail"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:text="Email Address"
+            android:textColor="#89f6f7f8"
             android:textSize="18dp"
-            android:fontFamily="@font/poppins_semibold"
-
             />
 
         <EditText
             android:textColor="@color/black"
-            android:id="@+id/loginMail"
-            android:layout_marginTop="0dp"
+            android:id="@+id/eMail"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/inputs"
-            android:hint="you@gmail.com"
-            android:textColorHint="#60000000"
+            android:hint="name@gmail.com"
             android:paddingStart="15dp"
             android:paddingEnd="14dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
+            />
+
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="#89f6f7f8"
+            android:textSize="18dp"
+
+            />
+
+        <EditText
+
+            android:textColor="@color/black"
+            android:id="@+id/password"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputs"
+            android:hint="Min 6 Characters"
+            android:paddingStart="15dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password"
+            android:textColor="#137fec"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
 
             />
 
 
         <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:fontFamily="@font/poppins_semibold"
-
-            />
-
-        <EditText
-            android:textColor="@color/black"
-            android:id="@+id/loginPassword"
-            android:layout_marginTop="0dp"
+            android:background="@drawable/inputs"
+            android:padding="16dp"
+            android:gravity="center"
+            android:id="@+id/signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/inputs"
-            android:hint="*****"
-            android:textColorHint="#60000000"
-            android:paddingStart="15dp"
-            android:paddingEnd="14dp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-
+            android:backgroundTint="#137fec"
+            android:text="Log In"
+            android:textColor="@color/blue_white"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
             />
 
         <ProgressBar
@@ -93,22 +131,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone" />
-
-
-        <Button
-            android:padding="12dp"
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#0118D8"
-            android:text="Log In"
-            android:textColor="@color/blue_white"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
-
-
-            />
-
 
 
 

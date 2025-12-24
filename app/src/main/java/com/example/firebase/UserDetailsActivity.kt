@@ -20,7 +20,7 @@ class UserDetailsActivity : AppCompatActivity() {
         binding = UserInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // ✅ UPDATED: Better database structure - Save under "users/uid/profile"
+        //gets the user id of the current login user,
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         databaseReference = FirebaseDatabase.getInstance().getReference("users")
 

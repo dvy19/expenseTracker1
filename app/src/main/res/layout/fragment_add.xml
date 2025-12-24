@@ -129,22 +129,12 @@
 
             />
 
-        <EditText
-            android:textColor="@color/black"
-            android:id="@+id/category"
-            android:layout_marginTop="0dp"
+        <Spinner
+            android:id="@+id/spinnerCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/inputs"
-            android:hint="Home"
-
-            android:textColorHint="#60000000"
-            android:paddingStart="15dp"
-            android:paddingEnd="14dp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-
-            />
+            android:padding="12dp" />
 
 
 

@@ -13,24 +13,25 @@ import com.google.firebase.auth.FirebaseAuth
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
-    private lateinit var auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth  //declaration of firebase auth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        binding= ActivitySignupBinding.inflate(layoutInflater)
+        binding= ActivitySignupBinding.inflate(layoutInflater)  // sets the binding
 
         super.onCreate(savedInstanceState)
 
-        setContentView(binding.root)
+        setContentView(binding.root)  //sets the view
 
-        auth= FirebaseAuth.getInstance()
+        auth= FirebaseAuth.getInstance()  // initialization of firebase auth
 
         binding.toLogin.setOnClickListener{
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
 
         }
+
         binding.signUp.setOnClickListener{
             var mail=binding.eMail.text.toString().trim()
             var password=binding.password.text.toString()
@@ -40,6 +41,7 @@ class SignupActivity : AppCompatActivity() {
                 binding.password.error = "Password must be at least 6 characters"
                 return@setOnClickListener
             }
+
             if(mail.isEmpty() && password.isEmpty()){
                 Toast.makeText(applicationContext,"Please Enter details",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -49,9 +51,13 @@ class SignupActivity : AppCompatActivity() {
                 .addOnCompleteListener{
                     task->
                     if(task.isSuccessful){
-
                         val user=auth.currentUser
 
+                        // gets the id token, JWT after successful login
+                        //JSON web token
+                        /*
+                        JSON token contains, user ID, validity, login time and verification status
+                         */
                         user?.getIdToken(true)
                             ?.addOnSuccessListener { result ->
                                 val idToken = result.token
