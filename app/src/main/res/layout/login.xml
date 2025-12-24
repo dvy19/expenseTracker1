@@ -109,7 +109,7 @@
             />
 
 
-        <TextView
+        <Button
             android:background="@drawable/inputs"
             android:padding="16dp"
             android:gravity="center"

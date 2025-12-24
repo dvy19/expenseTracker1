@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-    android:background="@color/blue_white">
+    android:background="#101922">
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:id="@+id/heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,8 +18,9 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="25dp"
+            android:layout_height="24dp"
             android:src="@drawable/arrow"
+            app:tint="#f6f7f8"
             android:rotation="-90"
             android:layout_weight="1"
             />
@@ -25,11 +28,25 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="2"
+            android:textAlignment="center"
             android:fontFamily="@font/poppins_semibold"
             android:text="Add Expense"
-            android:textColor="@color/black"
+            android:textColor="#f6f7f8"
             android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Save"
+            android:textColor="#137fec"
+            android:textSize="16sp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:textAlignment="viewEnd"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -47,68 +64,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Amount"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:textColor="#89f6f7f8"
             android:textSize="18dp"
-            android:fontFamily="@font/poppins_semibold"
-
             />
 
         <EditText
             android:textColor="@color/black"
-            android:id="@+id/amount"
-            android:layout_marginTop="0dp"
+            android:id="@+id/expense"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/inputs"
-            android:hint="Amount in Rupees"
-            android:textColorHint="#60000000"
+            android:hint="0.00"
             android:paddingStart="15dp"
             android:paddingEnd="14dp"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-
-            />
-
-        <TextView
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total : ₹ 500"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textFontWeight="900"
-            android:textSize="16dp"
-            android:fontFamily="@font/poppins_thin"
-
             />
 
 
 
+
         <TextView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:textColor="#89f6f7f8"
             android:textSize="18dp"
-            android:fontFamily="@font/poppins_semibold"
-
             />
 
         <EditText
-            android:textColor="@color/black"
+            android:layout_marginTop="8dp"
+            android:textColor="#f6f7f8"
             android:id="@+id/date"
-            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/inputs"
-            android:hint="00/00/00"
+            android:hint="Today"
             android:inputType="date"
             android:focusable="false"
             android:clickable="true"
-            android:textColorHint="#60000000"
+            android:textColorHint="#f6f7f8"
             android:paddingStart="15dp"
             android:paddingEnd="14dp"
             android:paddingTop="15dp"
@@ -116,20 +113,41 @@
 
             />
 
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note"
+            android:textColor="#89f6f7f8"
+            android:textSize="18dp"
+            />
+
+        <EditText
+            android:textColor="@color/black"
+            android:id="@+id/note"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputs"
+            android:hint="What is this for?"
+            android:paddingStart="15dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            />
+
 
         <TextView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Category"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:textColor="#89f6f7f8"
             android:textSize="18dp"
-            android:fontFamily="@font/poppins_semibold"
-
             />
 
         <Spinner
+            android:layout_marginTop="8dp"
             android:id="@+id/spinnerCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,17 +159,15 @@
 
 
         <Button
-
             android:padding="12dp"
             android:id="@+id/saveExpense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#0118D8"
-            android:text="Save"
+            android:backgroundTint="#137fec"
+            android:text="Save Expense"
             android:textColor="@color/blue_white"
             android:textSize="18sp"
-            android:layout_marginTop="20dp"
-
+            android:layout_marginTop="150dp"
 
             />
 

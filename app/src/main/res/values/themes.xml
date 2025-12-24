@@ -4,9 +4,6 @@
         <item name="colorPrimaryDark">#1976D2</item>
         <item name="colorAccent">#FF4081</item>
     </style>
-    <style name="Theme.JobPortal.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowNoTitle">true</item>
-    </style>
+
     <style name="Theme.Fragment" parent="Base.Theme.Fragment" />
 </resources>
