@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/blue_white"
+    android:background="#101922"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -33,14 +33,19 @@
 
 
             <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:backgroundTint="#101930"
+                android:background="@drawable/inputs"
                 android:id="@+id/cityDisplay"
+                android:padding="10dp"
                 android:textSize="12sp"
                 android:fontFamily="@font/poppins_semibold"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Delhi"
-                android:textColor="@color/black"
+                android:textColor="#f6f7f8"
                 />
 
 
@@ -111,10 +116,6 @@
                android:progressTint="#73AF6F" />
        </LinearLayout>
 
-
-
-
-
     </LinearLayout>
 
 
@@ -124,22 +125,23 @@
         android:orientation="horizontal"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
 
         >
 
         <TextView
+            android:layout_gravity="center"
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_height="wrap_content"
             android:text="Recent Expenses"
-            android:textColor="@color/black"
+            android:textColor="#f6f7f8"
             android:textSize="19sp"
-
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/poppins_semibold"/>
 
         <TextView
+            android:gravity="center"
             android:id="@+id/deleteExpenses"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -147,7 +149,7 @@
             android:clickable="true"
             android:focusable="true"
             android:text="Delete All"
-            android:textColor="@color/purple_700"
+            android:textColor="#137fec"
             android:textSize="16sp"
             android:fontFamily="@font/poppins_semibold"/>
 

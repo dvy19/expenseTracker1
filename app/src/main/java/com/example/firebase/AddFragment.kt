@@ -136,8 +136,9 @@ class AddFragment : Fragment() {
     }
 
     private fun saveExpenseToUserDatabase() {
-        val amount = binding.amount.text.toString()
+        val amount = binding.expense.text.toString()
         val date = binding.date.text.toString()
+        val note=binding.note.text.toString()
 
         if (amount.isEmpty() || date.isEmpty() || selectedCategory.isEmpty() || selectedCategory == "Select Category") {
             Toast.makeText(requireContext(), "Please fill all fields and select a valid category", Toast.LENGTH_SHORT).show()
@@ -161,6 +162,7 @@ class AddFragment : Fragment() {
 
         // Create expense with budget reference
         val expense = Expense(
+            note=note,
             amount = amount,
             date = date,
             category = selectedCategory,
@@ -174,7 +176,7 @@ class AddFragment : Fragment() {
                 updateBudgetSpent(amount.toDoubleOrNull() ?: 0.0)
 
                 // Clear fields after successful save
-                binding.amount.text.clear()
+                binding.expense.text.clear()
                 binding.date.text.clear()
                 binding.spinnerCategory.setSelection(0) // Reset to "Select Category"
 
