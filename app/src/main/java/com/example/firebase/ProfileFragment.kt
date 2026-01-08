@@ -1,8 +1,11 @@
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.firebase.LoginActivity
 import com.example.firebase.User
 import com.example.firebase.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -30,7 +33,22 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupFirebase()
+
+        val logoutBtn = binding.logout
+
+        logoutBtn.setOnClickListener {
+            logoutUser()
+        }
+
         loadUserData()
+    }
+
+    private fun logoutUser() {
+        auth.signOut()
+
+        val intent = Intent(requireActivity(), LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     private fun setupFirebase() {
@@ -94,13 +112,6 @@ class ProfileFragment : Fragment() {
         binding.usernameShow.text = user.name
         binding.mailShow.text = email // Use email from Auth
 
-        // ✅ UPDATED: Display additional user details if you have these TextViews
-        // If you have these TextViews in your layout, uncomment below:
-        /*
-        binding.genderShow.text = user.gender
-        binding.ageGroupShow.text = user.ageGroup // Changed from dobShow to ageGroupShow
-        binding.cityShow.text = user.city
-        */
     }
 
     private fun showNoUserData() {
