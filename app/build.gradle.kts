@@ -41,9 +41,13 @@ android {
         compose = true
         viewBinding = true
     }
+
 }
 
 dependencies {
+
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
 
     // Retrofit + OkHttp
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

@@ -46,8 +46,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        val email = binding.loginMail.text.toString().trim()
-        val password = binding.loginPassword.text.toString()
+        val email = binding.eMail.text.toString().trim()
+        val password = binding.password.text.toString()
 
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         if (password.length < 6) {
-            binding.loginPassword.error = "Password must be at least 6 characters"
+            binding.password.error = "Password must be at least 6 characters"
             return
         }
 

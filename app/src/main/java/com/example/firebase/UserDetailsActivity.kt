@@ -32,6 +32,8 @@ class UserDetailsActivity : AppCompatActivity() {
 
         // 🔹 Handle Save Button
         binding.userSignup.setOnClickListener {
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
+
             val fullName = binding.userFullName.text.toString().trim()
             val selectedGender = binding.genderSpinner.selectedItem.toString()
             val selectedAgeGroup = binding.ageGroupSpinner.selectedItem.toString()

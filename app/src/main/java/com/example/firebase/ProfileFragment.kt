@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.firebase.CategoryActivity
 import com.example.firebase.LoginActivity
 import com.example.firebase.User
 import com.example.firebase.databinding.FragmentProfileBinding
@@ -33,6 +34,10 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupFirebase()
+
+        val category=binding.categoryWise.setOnClickListener{
+            startActivity(Intent(requireContext(),CategoryActivity::class.java))
+        }
 
         val logoutBtn = binding.logout
 

@@ -113,7 +113,7 @@
             android:background="@drawable/inputs"
             android:padding="16dp"
             android:gravity="center"
-            android:id="@+id/signUp"
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#137fec"
